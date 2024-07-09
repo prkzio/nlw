@@ -6,7 +6,7 @@ from .links_repository import Links
 db_connection_handler.connect()
 trip_id = str(uuid.uuid4())
 
-@pytest.mark.skip(reason="interacao com o banco")
+#@pytest.mark.skip(reason="interacao com o banco")
 def test_link():
     conn = db_connection_handler.get_connection()
     links = Links(conn)
@@ -19,7 +19,7 @@ def test_link():
 
     links.link(links_infos)
 
-@pytest.mark.skip(reason="interacao com o banco")
+#@pytest.mark.skip(reason="interacao com o banco")
 def test_links_from_trip():
     conn = db_connection_handler.get_connection()
     links = Links(conn)
