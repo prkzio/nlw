@@ -1,29 +1,34 @@
 import pytest
 import uuid 
 from src.models.settings.db_connection_handler import db_connection_handler
-from .links_repository import Links
+from .links_repository import LinksRepository
 
 db_connection_handler.connect()
+link_id = str(uuid.uuid4())
 trip_id = str(uuid.uuid4())
 
 @pytest.mark.skip(reason="interacao com o banco")
-def test_link():
+def test_registry_link():
     conn = db_connection_handler.get_connection()
-    links = Links(conn)
+    link_repository = LinksRepository(conn)
 
     links_infos = {
-        "id":str(uuid.uuid4()),
+        "id":link_id,
         "trip_id": trip_id,
-        "link": "www.LinkTeste.com.br"
+        "link": "somlink.com",
+        "title": "Hotel"
     }
 
-    links.link(links_infos)
+    link_repository.registry_link(links_infos)
 
 @pytest.mark.skip(reason="interacao com o banco")
 def test_links_from_trip():
     conn = db_connection_handler.get_connection()
-    links = Links(conn)
+    link_repository = LinksRepository(conn)
 
-    links = links.find_links_from_trip(trip_id)
+    response = link_repository.find_links_from_trip(trip_id)
     print()
-    print(links)
+    print(response)
+
+    assert isinstance(response, list)
+    assert isinstance(response[0], tuple)
