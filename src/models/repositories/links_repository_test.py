@@ -1,7 +1,7 @@
 import pytest # type: ignore
 import uuid
 from .links_repository import LinksRepository
-from src.models.settings.db_connection_handler import db_connection_handler
+from src.models.setting.db_connection_handler import db_connection_handler
 
 db_connection_handler.connect()
 

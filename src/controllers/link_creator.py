@@ -15,7 +15,7 @@ class LinkCreator:
                 "trip_id": trip_id
             }
             self.__link_repository.registry_link(link_infos)
-            return{
+            return {
                 "body": { "linkId": link_id },
                 "status_code": 201
             }
