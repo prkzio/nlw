@@ -1,5 +1,5 @@
-import pytest
-import uuid 
+import pytest # type: ignore
+import uuid
 from datetime import datetime, timedelta
 from .trips_repository import TripsRepository
 from src.models.settings.db_connection_handler import db_connection_handler
@@ -29,7 +29,6 @@ def test_find_trip_by_id():
     trips_repository = TripsRepository(conn)
 
     trip = trips_repository.find_trip_by_id(trip_id)
-    print()
     print(trip)
 
 @pytest.mark.skip(reason="interacao com o banco")

@@ -12,7 +12,7 @@ def test_registry_email():
     emails_to_invite_repository = EmailsToInviteRepository(conn)
 
     email_trip_infos = {
-        "id":str(uuid.uuid4()),
+        "id": str(uuid.uuid4()),
         "trip_id": trip_id,
         "email": "olaMundo@email.com"
     }
